@@ -6,11 +6,12 @@ import Order from './Pages/Order';
 import Cart from './Pages/Cart';
 import Account from './Pages/Account';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import Footer from './Component/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/home" element={<Home/>}/>
@@ -18,8 +19,9 @@ function App() {
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/account" element={<Account/>}/>
         </Routes>
-      </Router>  
+      </Router>   */}
       {/* <Home/> */}
+      <Footer/>
     </div>
   );
 }

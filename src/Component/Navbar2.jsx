@@ -1,5 +1,9 @@
 import 'flowbite';
-
+//how to use flowbite 
+//setp 1 import above
+//step 2 go to tailwind.config put 2 lines
+//add this line to content     "./node_modules/flowbite/**/*.js"
+// add this line to plug in    require('flowbite/plugin')
 const Navbar2 = () => {
   return (
     <div>
