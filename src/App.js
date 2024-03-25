@@ -1,4 +1,5 @@
 import Navbar from './Component/Navbar';
+import Navbar2 from './Component/Navbar2';
 import './styles/App.css';
 import Home from './Pages/Home';
 // import Navbar from './Component/Navbar';
@@ -7,7 +8,7 @@ import Cart from './Pages/Cart';
 import Account from './Pages/Account';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Footer from './Component/Footer';
-import Nav3 from './Component/Nav3';
+
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
               <Route path="/account" element={<Account/>}/>
         </Routes>
       </Router>   */}
-      <Nav3/>
+      <Navbar2/>
+ 
       <Home/>
       <Footer/>
     </div>

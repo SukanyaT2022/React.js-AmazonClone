@@ -1,10 +1,16 @@
 import 'flowbite';
+import {useState} from 'react'
 //how to use flowbite 
 //setp 1 import above
 //step 2 go to tailwind.config put 2 lines
 //add this line to content     "./node_modules/flowbite/**/*.js"
 // add this line to plug in    require('flowbite/plugin')
 const Navbar2 = () => {
+  const [sidebar,setSideBar] = useState('hidden')
+
+  const sidebarHandle=()=>{
+    setSideBar("")// mans when click hanberger remove hidden so it show dropdown bar 
+  }
   return (
     <div>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -23,6 +29,8 @@ const Navbar2 = () => {
             </span>
           </a>
           <div className="flex md:order-2">
+
+            {/* line below make pen and close hanberger bar */}
             <button
               type="button"
               data-collapse-toggle="navbar-search"
@@ -47,7 +55,10 @@ const Navbar2 = () => {
               </svg>
               <span className="sr-only">Search</span>
             </button>
-            <div className="relative hidden md:block">
+
+
+{/* line below make pen and close hanberger bar */}
+            <div className={`relative hidden md:block`} >
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg
                   className="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -75,10 +86,12 @@ const Navbar2 = () => {
             </div>
             <button
               data-collapse-toggle="navbar-search"
+              onClick={sidebarHandle}
               type="button"
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-search"
               aria-expanded="false"
+              id="test"
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -87,6 +100,7 @@ const Navbar2 = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 17 14"
+                
               >
                 <path
                   stroke="currentColor"
@@ -94,12 +108,13 @@ const Navbar2 = () => {
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M1 1h15M1 7h15M1 13h15"
+                  
                 />
               </svg>
             </button>
           </div>
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            className={`items-center justify-between ${sidebar} w-full md:flex md:w-auto md:order-1`}
             id="navbar-search"
           >
             <div className="relative mt-3 md:hidden">
