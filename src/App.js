@@ -7,6 +7,7 @@ import Cart from './Pages/Cart';
 import Account from './Pages/Account';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Footer from './Component/Footer';
+import Nav3 from './Component/Nav3';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
               <Route path="/account" element={<Account/>}/>
         </Routes>
       </Router>   */}
-      {/* <Home/> */}
+      <Nav3/>
+      <Home/>
       <Footer/>
     </div>
   );
