@@ -2,7 +2,7 @@ import Navbar from './Component/Navbar';
 import Navbar2 from './Component/Navbar2';
 import './styles/App.css';
 import Home from './Pages/Home';
-// import Navbar from './Component/Navbar';
+
 import Order from './Pages/Order';
 import Cart from './Pages/Cart';
 import Account from './Pages/Account';
@@ -22,9 +22,9 @@ function App() {
               <Route path="/account" element={<Account/>}/>
         </Routes>
       </Router>   */}
-      <Navbar2/>
- 
-      <Home/>
+      {/* <Navbar2/> */}
+      <Navbar/>
+ <Home/>
       <Footer/>
     </div>
   );
