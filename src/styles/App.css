@@ -1,11 +1,19 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+a {
+  font-size:14px;
+  font-weight:700
 }
-
-/* .targetStickyNavBar{
-  position: sticky!important;
-  top: 0;
-  left: 0;
-} */
+.superNav {
+  font-size:13px;
+}
+.form-control {
+  outline:none !important;
+  box-shadow: none !important;
+}
+@media screen and (max-width:540px){
+  .centerOnMobile {
+    text-align:center
+  }
+}
