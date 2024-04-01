@@ -12,6 +12,8 @@ import { Navbar } from 'flowbite-react';
 
 
 
+
+
 function App() {
   return (
     <div className="App">
@@ -26,6 +28,7 @@ function App() {
               <Route path="/account" element={<Account/>}/>
         </Routes>
  <Footer/>
+
     </div>
   );
 }
