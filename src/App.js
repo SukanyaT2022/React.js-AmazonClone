@@ -7,8 +7,8 @@ import Account from './Pages/Account';
 import { Routes, Route } from "react-router-dom"
 import Footer from './Component/Footer';
 import Navbar2 from './Component/Navbar2';
-import Navbar3 from './Component/Navbar3';
-import { Navbar } from 'flowbite-react';
+
+
 
 
 
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
 <Navbar2/>
-{/* <Navbar3/> */}
+
 
         <Routes>
               <Route path="/" element={<Home/>}/>

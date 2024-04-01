@@ -22,4 +22,6 @@ const Slider = () => {
 
 export default Slider
 
+// https://flowbite-react.com/docs/components/carousel
+
 
