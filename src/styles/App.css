@@ -10,6 +10,10 @@ a {
   outline:none !important;
   box-shadow: none !important;
 }
+/* shadow4side at homepage */
+.shadow4side{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 @media screen and (max-width:540px){
   .centerOnMobile {
     text-align:center

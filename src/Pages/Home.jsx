@@ -20,7 +20,7 @@ const Home = () => {
 
       <div className="wrapper grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5 mx-3 my-5">
         {/* Left panel products */}
-        <div className="shadow-2xl p-5">
+        <div className="shadow4side p-5">
           <h2 className="font-bold text-center py-2 mb-3 text-xl">
             Pick up where you left off
           </h2>
@@ -28,7 +28,7 @@ const Home = () => {
             {products &&
               products.map((val) => (
                 <div className="smallImgDiv text-center">
-                  <img src={val.image} style={{ width: '7rem' }} />
+                  <img src={val.image} className='w-[7rem] h-[7rem] object-contain' />
                   <p>{val.price}</p>
                 </div>
               ))}
@@ -37,7 +37,7 @@ const Home = () => {
 
         {/* Righ panel */}
         <div className="">
-          <div className="shadow-2xl p-5 h-[45%]">
+          <div className="shadow4side p-5 h-[45%]">
             <h2 className="font-bold text-center py-2 mb-3 text-xl">
               Pick up where you left off
             </h2>
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
 
           {/* image side */}
-          <div className="main2side grid grid-cols-2 mt-5 shadow-2xl p-3 h-[50%] relative lg:pt-5 md:py-5">
+          <div className=" shadow4side main2side grid grid-cols-2 mt-5  p-3 h-[50%] relative lg:pt-5 md:py-5">
             <div>
               <h2 className="font-bold text-center py-2 mb-3 text-xl">
                 Pick up where you left off
