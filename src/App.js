@@ -18,17 +18,16 @@ import ProductDetail from './Pages/ProductDetail';
 function App() {
   return (
     <div className="App">
-<Navbar2/>
-
+        <Navbar2/>
         <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/home" element={<Home/>}/>
               <Route path="/order" element={<Order/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/account" element={<Account/>}/>
+              <Route path="/detail" element={<ProductDetail/>}/>
         </Routes>
-        <ProductDetail/>
- <Footer/>
+        <Footer/>
 
     </div>
   );
