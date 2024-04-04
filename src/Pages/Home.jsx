@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import groceryBagPic from '../Image/groceryBagPic.jpg';
 import Slider from '../Component/Slider';
+import { Link } from "react-router-dom"
+
 const Home = () => {
   const [jewelery, setJewelery] = useState([]);
   const [electronics, setElectronics] = useState([]);
@@ -25,6 +27,8 @@ const Home = () => {
 // }else if(category == "electronice"){
 //   setElectronics(data)
 // }
+{ jewelery && console.log(jewelery)}
+
 
   return (
     <div className="mt-14">
@@ -34,21 +38,23 @@ const Home = () => {
       <div className="wrapper grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5 mx-3 my-5">
         {/* Left panel products */}
         {/* Box1 */}
-        <div className="shadow4side p-5">
-          <h2 className="font-bold text-center py-2 mb-3 text-xl">
-            Pick up where you left off
-          </h2>
-          <div className="mainSmallBox  grid grid-cols-2 gap-x-4 gap-y-8">
-            {jewelery &&
-              jewelery.map((val) => (
-                <div className="smallImgDiv text-center">
-                  <img src={val.image} className='w-[7rem] h-[7rem] object-contain' />
-                  <p>{val.title.slice(0,13)}...</p>
-                  <p>${val.price}</p>
-                </div>
-              ))}
+          <div className="shadow4side p-5">
+            <h2 className="font-bold text-center py-2 mb-3 text-xl">
+              Pick up where you left off
+            </h2>
+            <div className="mainSmallBox  grid grid-cols-2 gap-x-4 gap-y-8">
+              {jewelery &&
+                jewelery.map((val) => (
+                  <Link to={`/detail/${val.id}`}>
+                    <div className="smallImgDiv text-center">
+                      <img src={val.image} className='w-[7rem] h-[7rem] object-contain' />
+                      <p>{val.title.slice(0,13)}...</p>
+                      <p>${val.price}</p>
+                    </div>
+                </Link>
+                ))}
+            </div>
           </div>
-        </div>
 
         {/* Box2 */}
         <div className="shadow4side p-5">

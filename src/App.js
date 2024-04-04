@@ -9,12 +9,6 @@ import Footer from './Component/Footer';
 import Navbar2 from './Component/Navbar2';
 import ProductDetail from './Pages/ProductDetail';
 
-
-
-
-
-
-
 function App() {
   return (
     <div className="App">
@@ -25,10 +19,10 @@ function App() {
               <Route path="/order" element={<Order/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/account" element={<Account/>}/>
-              <Route path="/detail" element={<ProductDetail/>}/>
+              <Route path="/detail/:id" element={<ProductDetail/>}/>
         </Routes>
         <Footer/>
-        <ProductDetail/>
+        {/* <ProductDetail/> */}
 
     </div>
   );
