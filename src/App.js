@@ -28,6 +28,7 @@ function App() {
               <Route path="/detail" element={<ProductDetail/>}/>
         </Routes>
         <Footer/>
+        <ProductDetail/>
 
     </div>
   );
