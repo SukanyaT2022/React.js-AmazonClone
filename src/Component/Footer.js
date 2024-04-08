@@ -57,9 +57,7 @@ const Footer = () => {
 <img src={logo} className='w-[100px]'/>
 </div> */}
 <div className='condition text-white md:text-sm  text-[10px] md:py-5 py-2'>
-<a href=''>Condition of Use</a>
-<a href=''>Privacy Notice</a>
-<a href=''>Your Ads Privacy Choices</a>
+<a href=''className='text-[10px] md:text-[14px]'>Condition of Use Privacy Notice Your Ads Privacy Choices</a>
 <p className='text-center'>&copy;2024, EasyLife.com, Inc.</p>
 </div>
 </div>
