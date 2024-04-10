@@ -14,31 +14,31 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="mainBoxProductDetail flex my-10">
+      <div className="mainBoxProductDetail flex flex-wrap my-10">
         {/* start image section 1 */}
-        <div className="lg:w-[40%] md:w-[40%]">
+        <div className="lg:w-[40%] md:w-[40%] w-[100%]">
           {/* mainimage */}
           <img
             src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-            className="lg:w-[70%] md:w-[80%] m-auto mt-10"
+            className="lg:w-[80%] md:w-[80%] m-auto mt-10"
           />
           {/* smallimagesdiv */}
           <div className="flex items-center justify-center space-x-3 my-7">
             <img
               src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[15%] md:w-[18%] "
+              className="lg:w-[18%] md:w-[18%] "
             />
             <img
               src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[15%] md:w-[18%]"
+              className="lg:w-[18%] md:w-[18%]"
             />
             <img
               src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[15%] md:w-[18%]"
+              className="lg:w-[18%] md:w-[18%]"
             />
             <img
               src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[15%] md:w-[18%]"
+              className="lg:w-[18%] md:w-[18%]"
             />
           </div>
         </div>

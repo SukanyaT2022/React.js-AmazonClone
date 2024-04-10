@@ -31,8 +31,10 @@ background-color: white!important;
 .custumButtonFreeReturn:hover{
   background-color: aqua!important;
 }
+/* //phone */
 @media screen and (max-width:540px){
   .centerOnMobile {
     text-align:center
   }
+
 }
