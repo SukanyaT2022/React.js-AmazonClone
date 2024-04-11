@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom"
 import Footer from './Component/Footer';
 import Navbar2 from './Component/Navbar2';
 import ProductDetail from './Pages/ProductDetail';
+import AllProducts from './Pages/AllProducts';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         </Routes>
         <Footer/>
         <ProductDetail/>
+        <AllProducts/>
 
     </div>
   );

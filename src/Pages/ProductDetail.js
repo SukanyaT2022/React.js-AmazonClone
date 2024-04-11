@@ -14,7 +14,8 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="mainBoxProductDetail flex flex-wrap my-10">
+      <div className="mainBoxProductDetail flex  flex-wrap my-10 md:p-0 px-5 md:space-y-0  space-y-3">
+    
         {/* start image section 1 */}
         <div className="lg:w-[40%] md:w-[40%] w-[100%]">
           {/* mainimage */}
@@ -23,7 +24,7 @@ const ProductDetail = () => {
             className="lg:w-[80%] md:w-[80%] m-auto mt-10"
           />
           {/* smallimagesdiv */}
-          <div className="flex items-center justify-center space-x-3 my-7">
+          <div className="md:flex hidden items-center justify-center space-x-3 my-7">
             <img
               src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
               className="lg:w-[18%] md:w-[18%] "
@@ -45,7 +46,7 @@ const ProductDetail = () => {
         {/* end image section 1 */}
 
         {/* start middle box 2 */}
-        <div className="mainboxMiddle lg:w-[40%] md:w-[35%]  lg:pl-0  lg:p-10 md:p-5 space-y-2 md:pt-10">
+        <div className="mainboxMiddle lg:w-[40%] md:w-[35%] w-[100%] lg:pl-0  lg:p-10 md:p-5 space-y-2 md:pt-10">
           <h4>Visit the TOEDNNQI Store</h4>
           <h3 className="font-bold">
             TOEDNNQI Boys Girls Sneakers Kids Lightweight Breathable Strap
@@ -69,8 +70,8 @@ const ProductDetail = () => {
           {/* price */}
           <div className="flex  items-center py-3">
             <p className="lg:mr-3 md:mr-2">Price</p>
-            <p className="lg:mr-3 md:mr-2">$15</p>
-            <FaCheck className="text-orange-500 md:mr-2 " />
+            <p className="lg:mr-3 md:mr-2 mr-2">$15</p>
+            <FaCheck className="text-orange-500 md:mr-2" />
             <p className="text-blue-500">One Day Delivery</p>
           </div>
 
@@ -91,10 +92,11 @@ const ProductDetail = () => {
           </div>
         </div>
         {/* end box 2 */}
+     
 
         {/* start box 3 */}
-        <div className="lg:w-[20%] md:w-[25%] lg:p-5 lg:pl-0 md:pr-4 md:pt-5">
-          <div className="border-2 border-gray-400 rounded-lg lg:p-5 md:p-2 space-y-2">
+        <div className="lg:w-[20%] md:w-[25%] w-[100%] lg:p-5 lg:pl-0 md:pr-4 md:pt-5">
+          <div className="border-2 border-gray-400 rounded-lg lg:p-5 md:p-2 space-y-2 p-5">
             <h2 className="font-bold text-2xl">$20</h2>
 
             <div className="flex items-center">
@@ -150,7 +152,7 @@ const ProductDetail = () => {
 
 <div className='flex pt-5'>
   <div className='lg:w-[60%] md:w-[40%] text-sm lg:mr-0 md:mr-2'>Returns</div>
-  <div className='text-sm text-blue-500'>Eligible for Return, Refund or Replacement.</div>
+  <div className='text-sm text-blue-500 md:pl-0 pl-5'>Eligible for Return, Refund or Replacement.</div>
 </div>
           </div>
         </div>
