@@ -1,57 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaStar, FaCheck } from 'react-icons/fa';
 import { Button, Modal, Select } from 'flowbite-react';
 import { useState } from 'react';
-import { useParams } from "react-router-dom"
-
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
   const [openModal, setOpenModal] = useState(false);
   const [modalSize, setModalSize] = useState('md');
-  const {id} = useParams()
-  id && alert(id)
+  const { id } = useParams();
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    id &&
+      fetch(`https://fakestoreapi.com/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+        });
+  }, []);
 
   return (
     <div>
       <div className="mainBoxProductDetail flex  flex-wrap my-10 md:p-0 px-5 md:space-y-0  space-y-3">
-    
         {/* start image section 1 */}
-        <div className="lg:w-[40%] md:w-[40%] w-[100%]">
-          {/* mainimage */}
-          <img
-            src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-            className="lg:w-[80%] md:w-[80%] m-auto mt-10"
-          />
-          {/* smallimagesdiv */}
-          <div className="md:flex hidden items-center justify-center space-x-3 my-7">
+        {data && (
+          <div className="lg:w-[40%] md:w-[40%] w-[100%]">
             <img
-              src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[18%] md:w-[18%] "
+              src={data.image}
+              className="lg:w-[80%] md:w-[80%] m-auto mt-10"
             />
-            <img
-              src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[18%] md:w-[18%]"
-            />
-            <img
-              src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[18%] md:w-[18%]"
-            />
-            <img
-              src="https://plus.unsplash.com/premium_photo-1664127534779-f1ab9a1962df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:w-[18%] md:w-[18%]"
-            />
+            <div className="md:flex hidden items-center justify-center space-x-3 my-7">
+              <img src={data.image} className="lg:w-[18%] md:w-[18%] " />
+              <img src={data.image} className="lg:w-[18%] md:w-[18%]" />
+              <img src={data.image} className="lg:w-[18%] md:w-[18%]" />
+              <img src={data.image} className="lg:w-[18%] md:w-[18%]" />
+            </div>
           </div>
-        </div>
+        )}
         {/* end image section 1 */}
 
         {/* start middle box 2 */}
         <div className="mainboxMiddle lg:w-[40%] md:w-[35%] w-[100%] lg:pl-0  lg:p-10 md:p-5 space-y-2 md:pt-10">
           <h4>Visit the TOEDNNQI Store</h4>
-          <h3 className="font-bold">
-            TOEDNNQI Boys Girls Sneakers Kids Lightweight Breathable Strap
-            Athletic Running Shoes for Toddler/Little Kid/Big Kid
-          </h3>
+          <h3 className="font-bold">{data && data.title}</h3>
           {/* rating */}
           <div className="mainStarRating flex items-center space-x-2">
             <span>4.4</span>
@@ -66,7 +58,7 @@ const ProductDetail = () => {
               12,222<span className="ml-1">ratings</span>
             </span>
           </div>
-          <div className="border-t-2 border-gray-400 opacity-50"></div>
+          <div className="border-t-2 border-gray-400 opacity-50 "></div>
           {/* price */}
           <div className="flex  items-center py-3">
             <p className="lg:mr-3 md:mr-2">Price</p>
@@ -92,7 +84,6 @@ const ProductDetail = () => {
           </div>
         </div>
         {/* end box 2 */}
-     
 
         {/* start box 3 */}
         <div className="lg:w-[20%] md:w-[25%] w-[100%] lg:p-5 lg:pl-0 md:pr-4 md:pt-5">
@@ -129,31 +120,40 @@ const ProductDetail = () => {
                 </div>
               </Modal.Body>
             </Modal>
-        
 
             {/* end modal */}
-            <p className='lg:text-md md:text-sm'>Free delivery Tomorrow.</p>
-            <p className='text-green-500 font-bold text-lg '>In Stock</p>
+            <p className="lg:text-md md:text-sm">Free delivery Tomorrow.</p>
+            <p className="text-green-500 font-bold text-lg ">In Stock</p>
             {/* dropdown quantity */}
-        
-            <select className='rounded-lg w-full'>
-            <option value="1" disabled>Quantity:</option>        
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-</select>
-{/* end dropdown qty */}
-<div>
-<button className='w-full block bg-[#F4D03F] font-bold text-sm mx-auto py-2 px-4 rounded-2xl my-5'>Add to Cart</button>
-<button className='w-full block bg-orange-500 font-bold text-sm mx-auto py-2 px-4 rounded-2xl'>Buy Now</button>
-</div>
 
-<div className='flex pt-5'>
-  <div className='lg:w-[60%] md:w-[40%] text-sm lg:mr-0 md:mr-2'>Returns</div>
-  <div className='text-sm text-blue-500 md:pl-0 pl-5'>Eligible for Return, Refund or Replacement.</div>
-</div>
+            <select className="rounded-lg w-full">
+              <option value="1" disabled>
+                Quantity:
+              </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            {/* end dropdown qty */}
+            <div>
+              <button className="w-full block bg-[#F4D03F] font-bold text-sm mx-auto py-2 px-4 rounded-2xl my-5">
+                Add to Cart
+              </button>
+              <button className="w-full block bg-orange-500 font-bold text-sm mx-auto py-2 px-4 rounded-2xl">
+                Buy Now
+              </button>
+            </div>
+
+            <div className="flex pt-5">
+              <div className="lg:w-[60%] md:w-[40%] text-sm lg:mr-0 md:mr-2">
+                Returns
+              </div>
+              <div className="text-sm text-blue-500 md:pl-0 pl-5">
+                Eligible for Return, Refund or Replacement.
+              </div>
+            </div>
           </div>
         </div>
         {/* end last box left */}

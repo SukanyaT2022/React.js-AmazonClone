@@ -21,6 +21,7 @@ const Home = () => {
         });
     })
   }, []);
+  
 
 // if(category == "jewelery"){
 //   setJewelery(data)
