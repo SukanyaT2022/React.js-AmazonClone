@@ -26,10 +26,12 @@ const ProductDetail = () => {
         {/* start image section 1 */}
         {data && (
           <div className="lg:w-[40%] md:w-[40%] w-[100%]">
-            <img
-              src={data.image}
-              className="lg:w-[80%] md:w-[80%] m-auto mt-10"
-            />
+            <div className='max-w-[65%] m-auto'>
+              <img
+                src={data.image}
+                className="lg:w-[80%] md:w-[80%] m-auto mt-10"
+              />
+            </div>
             <div className="md:flex hidden items-center justify-center space-x-3 my-7">
               <img src={data.image} className="lg:w-[18%] md:w-[18%] " />
               <img src={data.image} className="lg:w-[18%] md:w-[18%]" />

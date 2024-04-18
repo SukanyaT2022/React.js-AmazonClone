@@ -65,11 +65,13 @@ const Home = () => {
           <div className="mainSmallBox  grid grid-cols-2 gap-x-4 gap-y-8">
             {electronics &&
               electronics.map((val) => (
-                <div className="smallImgDiv text-center font-bold text-sm">
-                  <img src={val.image} className='w-[7rem] h-[7rem] object-contain m-auto' />
-                  <p>{val.title.slice(0,13)}...</p>
-                  <p>${val.price}</p>
-                </div>
+                <Link to={`/detail/${val.id}`}>
+                  <div className="smallImgDiv text-center font-bold text-sm">
+                    <img src={val.image} className='w-[7rem] h-[7rem] object-contain m-auto' />
+                    <p>{val.title.slice(0,13)}...</p>
+                    <p>${val.price}</p>
+                  </div>
+                </Link>
               ))}
           </div>
         </div>
@@ -82,11 +84,13 @@ const Home = () => {
           <div className="mainSmallBox  grid grid-cols-2 gap-x-4 gap-y-8">
             {clothing &&
               clothing.map((val) => (
+                <Link to={`/detail/${val.id}`}>
                 <div className="smallImgDiv text-center font-bold text-sm">
                   <img src={val.image} className='w-[7rem] h-[7rem] object-contain m-auto' />
                   <p>{val.title.slice(0,13)}...</p>
                   <p>${val.price}</p>
                 </div>
+                </Link>
               ))}
           </div>
         </div>
