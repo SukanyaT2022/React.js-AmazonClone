@@ -9,6 +9,7 @@ import Footer from './Component/Footer';
 import Navbar2 from './Component/Navbar2';
 import ProductDetail from './Pages/ProductDetail';
 import AllProducts from './Pages/AllProducts';
+import SliderProductHome from './Component/SliderProductHome';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Footer/>
         <ProductDetail/>
         <AllProducts/>
+        <SliderProductHome/>
 
     </div>
   );

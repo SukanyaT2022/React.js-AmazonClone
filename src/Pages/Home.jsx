@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import groceryBagPic from '../Image/groceryBagPic.jpg';
 import Slider from '../Component/Slider';
 import { Link } from "react-router-dom"
+import SliderProductHome from '../Component/SliderProductHome';
 
 const Home = () => {
   const [jewelery, setJewelery] = useState([]);
@@ -131,6 +132,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+            {/* div above - end section one */}
+      <SliderProductHome/>
     </div>
   );
 };
