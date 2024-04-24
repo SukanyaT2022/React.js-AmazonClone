@@ -39,3 +39,7 @@ background-color: white!important;
   }
 
 }
+
+#flowbite-card-image img{
+  width: 30%;
+}

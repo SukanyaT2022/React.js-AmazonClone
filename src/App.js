@@ -21,11 +21,10 @@ function App() {
               <Route path="/order" element={<Order/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/account" element={<Account/>}/>
+              <Route path="/products" element={<AllProducts/>}/>
               <Route path="/detail/:id" element={<ProductDetail/>}/>
         </Routes>
-        <Footer/>
-        <ProductDetail/>
-        <AllProducts/>
+        {/* <Footer/> */}
         <SliderProductHome/>
 
     </div>
