@@ -32,6 +32,16 @@ background-color: white!important;
   background-color: aqua!important;
 }
 
+/* all product page target card */
+.targetCard-AllProductPage img{
+width: 50%;
+margin: auto;
+padding-top: 20px;
+height: 200px;
+object-fit: contain;
+}
+
+
 /* phone */
 @media screen and (max-width:540px){
   .centerOnMobile {
