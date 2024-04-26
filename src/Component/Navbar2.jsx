@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
+import logoSnap from '../Image/logoShopSnap.Resizejpg.jpg'
 
 const Navbar2 = () => {
   useEffect(() => {
@@ -16,8 +17,8 @@ const Navbar2 = () => {
             class="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="h-8"
+              src={logoSnap}
+              class="h-20"
               alt="Flowbite Logo"
             />
           </Link>
