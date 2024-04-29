@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from 'flowbite-react';
 import { Carousel } from "flowbite-react";
+import {Link} from "react-router-dom"
 
 const AllProducts = () => {
   const [data, setData] = useState([]);
@@ -31,12 +32,13 @@ const AllProducts = () => {
     <div className="mainbox-allproducts mt-10 w-[90%] mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
       {data &&
         data.map((item) => (
+          <Link to={`/detail/${item.id}`}>
           <Card
             className=" relative targetCard-AllProductPage"
             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
             imgSrc={item.image}
           >
-              <div className=''>
+          <div className=''>
             <a href="#">
               <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white text-center">
                 {item.title}
@@ -75,6 +77,7 @@ const AllProducts = () => {
             </div>
             </div>
           </Card>
+            </Link>
         ))}
     </div>
     </>

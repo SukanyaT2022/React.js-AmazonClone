@@ -1,12 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
 import logoSnap from '../Image/logoShopSnap.jpg'
 
 const Navbar2 = () => {
+  const [searchData, setSearchData] = useState([]);
+
   useEffect(() => {
     initFlowbite();
   }, []);
+
+  const searchHandle = (e)=>{
+
+  setSearchData([]);
+
+    // What user types in search box
+    const searchbox_value = e.target.value;
+    
+    // This will return all prdoucts
+    fetch(`https://fakestoreapi.com/products`)
+      .then((res) => res.json())
+      .then((data) => {
+        data.map((item)=>{
+          // include or search method help to search somthing
+          let result = item.title.includes(searchbox_value);
+
+          if(result){
+            setSearchData((oldData)=>[...oldData,item])
+            console.log(searchData)
+          }else{
+            console.log("No match found")
+          }
+          
+      })
+      });
+  }
+
 
   return (
     <div>
@@ -71,6 +100,7 @@ const Navbar2 = () => {
                 id="search-navbar"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search..."
+                onChange={searchHandle}
               />
             </div>
             <button
@@ -125,6 +155,7 @@ const Navbar2 = () => {
                 id="search-navbar"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search..."
+                onChange={searchHandle}
               />
             </div>
             <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
