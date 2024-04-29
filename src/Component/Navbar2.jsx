@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
-import logoSnap from '../Image/logoShopSnap.Resizejpg.jpg'
+import logoSnap from '../Image/logoShopSnap.jpg'
 
 const Navbar2 = () => {
   useEffect(() => {

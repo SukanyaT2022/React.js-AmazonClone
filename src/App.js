@@ -24,7 +24,7 @@ function App() {
               <Route path="/products" element={<AllProducts/>}/>
               <Route path="/detail/:id" element={<ProductDetail/>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
         <SliderProductHome/>
 
     </div>
