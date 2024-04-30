@@ -33,7 +33,7 @@ const Home = () => {
 
 
   return (
-    <div className="mt-14">
+    <div className="mt-0">
       {/* slider start  */}
       <Slider />
 
