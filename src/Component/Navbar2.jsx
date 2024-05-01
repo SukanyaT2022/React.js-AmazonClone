@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
 import logoSnap from '../Image/logoShopSnap.jpg'
-import { BsCart3 } from "react-icons/bs";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar2 = () => {
   const [searchData, setSearchData] = useState([]);
@@ -170,7 +170,7 @@ const Navbar2 = () => {
               <li>
               <Link
                   to="/"
-                  class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  hover:border-blue-500 "
                   aria-current="page"
                 >
                   Home
@@ -179,7 +179,7 @@ const Navbar2 = () => {
                 <li>
                   <Link
                     to="products"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  "
                   >
                     Products
                   </Link>
@@ -187,15 +187,17 @@ const Navbar2 = () => {
               <li>
                 <a
                   href="#"
-                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white "
                 >
                   About
                 </a>
               </li>
              
             </ul>
-            <div>
-            <BsCart3 />
+            {/* shopping cart and number */}
+            <div className='relative ml-7'>
+            <FaCartShopping className='text-5xl text-[#F8AF24]' />
+       <span className='absolute top-1 left-6 text-white font-extrabold'>1</span>
             </div>
           </div>
         </div>
