@@ -3,16 +3,17 @@ import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
 import logoSnap from '../Image/logoShopSnap.jpg'
 import { FaCartShopping } from "react-icons/fa6";
+import AllProducts from '../Pages/AllProducts' 
 
 const Navbar2 = () => {
   const [searchData, setSearchData] = useState([]);
+  const [flag,setFlag] = useState(false)
 
   useEffect(() => {
     initFlowbite();
   }, []);
 
-  const searchHandle = (e)=>{
-
+  const searchHandler = (e)=>{
   setSearchData([]);
 
     // What user types in search box
@@ -25,21 +26,23 @@ const Navbar2 = () => {
         data.map((item)=>{
           // include or search method help to search somthing
           let result = item.title.includes(searchbox_value);
-
           if(result){
             setSearchData((oldData)=>[...oldData,item])
-            console.log(searchData)
           }else{
             console.log("No match found")
           }
-          
       })
+      searchData && console.log(searchData)
       });
   }
 
+  const submitData = ()=>{
+    setFlag(true)
+  }
 
   return (
     <div>
+      {flag && <AllProducts/>}
       <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
@@ -80,7 +83,8 @@ const Navbar2 = () => {
             </button>
             {/* below control input box and search icon */}
             <div class="relative hidden md:block w-full">
-              <div class="absolute inset-y-0 end-0 pr-3 flex   items-center ps-3 pointer-events-none">
+              <div class="absolute inset-y-0 end-0 pr-3 flex items-center ps-3 pointer-events-none" 
+              onClick={searchHandler}>
                 {/* icon search */}
                 <svg
                   class="w-4 h-4 text-black"
@@ -104,8 +108,9 @@ const Navbar2 = () => {
                 id="search-navbar"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search..."
-                onChange={searchHandle}
+                onChange={searchHandler}
               />
+              <button onClick={submitData}>Search</button>
             </div>
             <button
               data-collapse-toggle="navbar-search"
@@ -138,7 +143,8 @@ const Navbar2 = () => {
           >
             {/* logo and search in the same box */}
             <div class="relative mt-3 md:hidden">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none" 
+              onClick={searchHandler}>
                 <svg
                   class="w-4 h-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
@@ -161,8 +167,8 @@ const Navbar2 = () => {
                 id="search-navbar"
                 className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 md:hidden"
                 placeholder="Search..."
-                onChange={searchHandle}
-              /> 
+                onChange={searchHandler}
+              />
 
             </div>
             <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
