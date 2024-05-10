@@ -6,6 +6,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import AllProducts from '../Pages/AllProducts' 
 
 const Navbar2 = () => {
+  const [data, setData] = useState();
   const [searchData, setSearchData] = useState([]);
   const [flag,setFlag] = useState(false)
 
@@ -17,15 +18,15 @@ const Navbar2 = () => {
   setSearchData([]);
 
     // What user types in search box
-    const searchbox_value = e.target.value;
+    // const searchbox_value = e.target.value;
     
     // This will return all prdoucts
     fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
-      .then((data) => {
-        data.map((item)=>{
+      .then((item) => {
+        item.map((item)=>{
           // include or search method help to search somthing
-          let result = item.title.includes(searchbox_value);
+          let result = item.title.includes(data);
           if(result){
             setSearchData((oldData)=>[...oldData,item])
           }else{
@@ -108,9 +109,9 @@ const Navbar2 = () => {
                 id="search-navbar"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search..."
-                onChange={searchHandler}
+                onChange={(e)=>setData(e.target.value)}
               />
-              <button onClick={submitData}>Search</button>
+              <button onClick={searchHandler}>Search</button>
             </div>
             <button
               data-collapse-toggle="navbar-search"
