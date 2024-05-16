@@ -29,7 +29,7 @@ const Home = () => {
 // }else if(category == "electronice"){
 //   setElectronics(data)
 // }
-{ jewelery && console.log(jewelery)}
+// { jewelery && console.log(jewelery)}
 
 
   return (

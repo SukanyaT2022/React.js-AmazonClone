@@ -5,36 +5,36 @@ import logoSnap from '../Image/logoShopSnap.jpg'
 import { FaCartShopping } from "react-icons/fa6";
 import AllProducts from '../Pages/AllProducts' 
 
-const Navbar2 = () => {
+const Navbar2 = ({onDataHandler}) => {
   const [data, setData] = useState();
-  const [searchData, setSearchData] = useState([]);
+  const [searchItem, setSearchItem] = useState();
+  // const [searchData, setSearchData] = useState([]);
   const [flag,setFlag] = useState(false)
 
   useEffect(() => {
     initFlowbite();
   }, []);
 
-  const searchHandler = (e)=>{
-  setSearchData([]);
-
-    // What user types in search box
-    // const searchbox_value = e.target.value;
-    
-    // This will return all prdoucts
+  useEffect(()=>{
     fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
-      .then((item) => {
-        item.map((item)=>{
-          // include or search method help to search somthing
-          let result = item.title.includes(data);
-          if(result){
-            setSearchData((oldData)=>[...oldData,item])
-          }else{
-            console.log("No match found")
-          }
+      .then((val) => {
+          setData(val)
+          console.log(val)
       })
-      searchData && console.log(searchData)
-      });
+  },[])
+
+
+  const searchHandler = (e)=>{
+    let temp=[];
+
+        data.map((item)=>{
+          let result = item.title.includes(searchItem);
+          if(result){
+            temp.push(item)
+          }
+        });
+        onDataHandler(temp)
   }
 
   const submitData = ()=>{
@@ -109,9 +109,9 @@ const Navbar2 = () => {
                 id="search-navbar"
                 class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search..."
-                onChange={(e)=>setData(e.target.value)}
+                onChange={(e)=>setSearchItem(e.target.value)}
               />
-              <button onClick={searchHandler}>Search</button>
+                  <button onClick={searchHandler}>Search</button>
             </div>
             <button
               data-collapse-toggle="navbar-search"
