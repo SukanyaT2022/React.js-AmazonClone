@@ -34,13 +34,16 @@ background-color: white!important;
 
 /* all product page target card */
 .targetCard-AllProductPage img{
-width: 50%;
+width: 40%;
 margin: auto;
 padding-top: 20px;
-height: 200px;
+height: 200px!important;
 object-fit: contain;
 }
-
+.targetCard-AllProductPage:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
 
 /* phone */
 @media screen and (max-width:540px){
