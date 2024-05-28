@@ -3,6 +3,7 @@ import { initFlowbite } from 'flowbite';
 import {Link} from 'react-router-dom'
 import logoSnap from '../Image/logoShopSnap.jpg'
 import { FaCartShopping } from "react-icons/fa6";
+import { IoSearch } from "react-icons/io5";
 import AllProducts from '../Pages/AllProducts' 
 
 const Navbar2 = ({onDataHandler}) => {
@@ -57,7 +58,7 @@ const Navbar2 = ({onDataHandler}) => {
             />
           </Link>
           {/* main search box */}
-          <div class="flex md:order-1 w-[30%] ">
+          <div class="flex pt-8 md:order-1 w-[30%]">
             <button
               type="button"
               data-collapse-toggle="navbar-search"
@@ -87,7 +88,7 @@ const Navbar2 = ({onDataHandler}) => {
               <div class="absolute inset-y-0 end-0 pr-3 flex items-center ps-3 pointer-events-none" 
               onClick={searchHandler}>
                 {/* icon search */}
-                <svg
+                {/* <svg
                   class="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,17 +102,18 @@ const Navbar2 = ({onDataHandler}) => {
                     stroke-width="2"
                     d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                   />
-                </svg>
+                </svg> */}
                 <span class="sr-only">Search icon</span>
               </div>
               <input
                 type="text"
                 id="search-navbar"
-                class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                class="block w-full p-2 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search..."
                 onChange={(e)=>setSearchItem(e.target.value)}
               />
-                  <button onClick={searchHandler}>Search</button>
+              {/* //searchIcon */}
+                  <button onClick={searchHandler}><IoSearch  className='text-2xl absolute top-[7px] right-2  '/></button>
             </div>
             <button
               data-collapse-toggle="navbar-search"
