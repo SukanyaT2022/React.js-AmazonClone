@@ -11,12 +11,15 @@ import ProductDetail from './Pages/ProductDetail';
 import AllProducts from './Pages/AllProducts';
 import SliderProductHome from './Component/SliderProductHome';
 import {useState} from "react";
+import NotFound from './Component/NotFound';
 
 function App() {
   const [data,setData] = useState([])
+  const [flag,setFlag] = useState(false)
   
   const dataHandler = (val)=>{
     setData(val);
+    setFlag(true)
   }
 
 
@@ -24,10 +27,11 @@ function App() {
     <div className="App">
         <Navbar2 onDataHandler = {dataHandler}/>
         {/* Conditional rendering */}
-        {data.length !==0 &&  <AllProducts data={data}/>}
+        {data.length !==0?  <AllProducts data={data}/>: flag && <NotFound/>}
         <Routes>
               <Route path="/" element={data.length === 0 && <Home/>}/>
               <Route path="/home" element={<Home/>}/>
+              <Route path="/notfound" element={<NotFound/>}/>
               <Route path="/order" element={<Order/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/account" element={<Account/>}/>
