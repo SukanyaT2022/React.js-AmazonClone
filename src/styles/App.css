@@ -1,0 +1,71 @@
+html,
+body {
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  font-size: 14px;
+  font-weight: 700;
+}
+.superNav {
+  font-size: 13px;
+}
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* shadow4side at homepage */
+.shadow4side {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+/* detailproduct page freereturn basket */
+.custumButtonFreeReturn {
+  background-color: white !important;
+}
+.custumButtonFreeReturn:hover {
+  background-color: aqua !important;
+}
+
+/* all product page target card */
+.targetCard-AllProductPage img {
+  width: 40%;
+  margin: auto;
+  padding-top: 20px;
+  height: 200px !important;
+  object-fit: contain;
+}
+.targetCard-AllProductPage:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* not found page */
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+.notfound h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+
+/* phone */
+@media screen and (max-width: 540px) {
+  .centerOnMobile {
+    text-align: center;
+  }
+}
+
+#flowbite-card-image img {
+  width: 30%;
+}
