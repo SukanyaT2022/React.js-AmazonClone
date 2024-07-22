@@ -10,31 +10,33 @@ const Cart = (props) => {
 
   const incrementHandle = (id) => {
     //Delte that product from array
-    const filter = item.filter((val) => val.id != id);
+    // const filter = item.filter((val) => val.id != id);
 
-    // Update and add back to array
-    const update = item.filter((val) => val.id == id);
-    update[0].quantity += 1;
+    // // Update and add back to array
+    // const update = item.filter((val) => val.id == id);
+    // update[0].quantity += 1;
 
-    console.log([...filter,...update])
-    setItem([...update,...filter])
+    const updatedData = item.map((val) => {
+      if (val.id === id) {
+        return { ...val, quantity: val.quantity + 1 };
+      } else {
+        return val;
+      }
+    });
+
+    setItem(updatedData);
   };
 
   const decrementHandle = (id) => {
-    //Delte that product from array
-    const filter = item.filter((val) => val.id != id);
+    const updatedData = item.map((val) => {
+      if (val.id === id) {
+        return (val.quantity == 1)?{ ...val, quantity: 1 }:{ ...val, quantity: val.quantity - 1 };
+      } else {
+        return val;
+      }
+    });
 
-    // Update and add back to array
-    const update = item.filter((val) => val.id == id);
-//below can not do minus on quantity in the box
-    if(update[0].quantity > 1){
-      update[0].quantity = update[0].quantity - 1
-    }
-    
-    // update[0].quantity =  update[0].quantity > 1 ?update[0].quantity - 1:1;
-
-    console.log([...filter,...update])
-    setItem([...update,...filter])
+    setItem(updatedData);
   };
 
   const removeHandle = (id) => {
