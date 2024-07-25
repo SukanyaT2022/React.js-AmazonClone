@@ -7,7 +7,8 @@ import { FaCartShopping } from 'react-icons/fa6';
 import { IoSearch } from 'react-icons/io5';
 import AllProducts from '../Pages/AllProducts';
 
-const Navbar2 = ({ onDataHandler }) => {
+const Navbar2 = ({ onDataHandler,length }) => {
+
   const [data, setData] = useState();
   const [searchItem, setSearchItem] = useState();
   // const [searchData, setSearchData] = useState([]);
@@ -166,7 +167,7 @@ const Navbar2 = ({ onDataHandler }) => {
             <div className="relative ml-7 sm:block hidden">
               <FaCartShopping className="text-5xl text-[#F8AF24]" />
               <span className="absolute top-1 left-6 text-white font-extrabold">
-                0
+                {length}
               </span>
             </div>
           </Link>
@@ -177,7 +178,7 @@ const Navbar2 = ({ onDataHandler }) => {
           <div className="fixed right-6 top-6 sm:hidden block">
             <FaCartShopping className="text-5xl text-[#F8AF24]" />
             <span className="absolute top-1 left-6 text-white font-extrabold">
-              1
+            {length}
             </span>
           </div>
         </div>

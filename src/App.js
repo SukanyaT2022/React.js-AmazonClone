@@ -18,6 +18,7 @@ import {useNavigate} from 'react-router-dom';
 function App() {
   const [data,setData] = useState([])
   const [cart,setCart] = useState([])
+  const [length,setLength] = useState(0)
 
   const [searchClicked,setSearchClicked] = useState(false)
   const navigate = useNavigate();
@@ -51,9 +52,13 @@ function App() {
     setCart(data)
   }
 
+  const lengthCounter = (length)=>{
+    setLength(length)
+  }
+
   return (
     <div className="App">
-        <Navbar2 onDataHandler = {dataHandler}/>
+        <Navbar2 onDataHandler = {dataHandler} length={length}/>
         {/* Conditional rendering */}
         {/* {data.length !==0 &&  <AllProducts data={data}/>} */}
         <Routes>
@@ -61,7 +66,11 @@ function App() {
               <Route path="/home" element={<Home/>}/>
               <Route path="/notfound" element={<NotFound/>}/>
               <Route path="/order" element={<Order/>}/>
-              <Route path="/cart" element={<Cart cart={cart} onDataCatch={dataCatch}/>}/>//step 1 ondatacatch -get data from cart
+              <Route path="/cart" element={<Cart 
+              cart={cart} 
+              onDataCatch={dataCatch} 
+              lengthCounter = {lengthCounter} 
+              length = {cart.length}/>}/>//step 1 ondatacatch -get data from cart
               <Route path="/account" element={<Account/>}/>
               <Route path="/products" element={<AllProducts/>}/>
               <Route path="/searchProduct" element={<SearchProduct/>}/>

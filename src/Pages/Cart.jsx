@@ -2,11 +2,18 @@ import { useEffect, useState } from 'react';
 
 const Cart = (props) => {
   const [item, setItem] = useState([]);
+  const [length, setLength] = useState(0);
 
   useEffect(() => {
     setItem(props.cart);
-    console.log(props);
+    setLength(props.length);
+    props.lengthCounter(props.length)
   }, [props.cart]);
+
+  useEffect(()=>{
+    //Sending back updated length
+    props.lengthCounter(length)
+  },[length])
 
   const incrementHandle = (id) => {
     //Delte that product from array
@@ -18,6 +25,7 @@ const Cart = (props) => {
 
     const updatedData = item.map((val) => {
       if (val.id === id) {
+        setLength(length+1)
         return { ...val, quantity: val.quantity + 1 };
       } else {
         return val;
