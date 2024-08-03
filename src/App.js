@@ -44,7 +44,15 @@ function App() {
   const cartData = (data)=>{
     data.quantity = 1;
 
-    setCart((oldData)=>[...oldData,data])
+    let itemFound = cart.some((item) => item.id === data.id);
+
+    if(itemFound){
+      data.quantity = data.quantity + 1;
+      setCart((oldData)=>[...oldData,data])
+    }else{
+      setCart((oldData)=>[...oldData,data]) 
+    }
+
   }
 //step 2 make function--use to updatedata--data fresh data from cart
 //step 3 on cart.js line22
