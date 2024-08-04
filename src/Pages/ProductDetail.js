@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import { FaStar, FaCheck } from 'react-icons/fa';
-import { Button, Modal, Select } from 'flowbite-react';
-import { useState } from 'react';
-import { useParams,Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { FaStar, FaCheck } from "react-icons/fa";
+import { Button, Modal, Select } from "flowbite-react";
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 
 const ProductDetail = (props) => {
   const [openModal, setOpenModal] = useState(false);
-  const [modalSize, setModalSize] = useState('md');
+  const [modalSize, setModalSize] = useState("md");
   const { id } = useParams();
+  const [isDataFetched, setIsDataFetched] = useState(false);
 
   const [data, setData] = useState([]);
 
@@ -17,13 +18,19 @@ const ProductDetail = (props) => {
         .then((res) => res.json())
         .then((data) => {
           setData(data);
+          setIsDataFetched(true);
         });
   }, []);
 
-  const cartHandler = ()=>{
-    // Child to Parent => Sending data to App.js
-    props.onCartData(data)
-  }
+  useEffect(() => {
+    if (isDataFetched) {
+      setData((oldData) => ({ ...oldData, quantity: 1 }));
+    }
+  }, [isDataFetched]);
+
+  const cartHandler = () => {
+    props.onCartData(data);
+  };
 
   return (
     <div>
@@ -31,7 +38,7 @@ const ProductDetail = (props) => {
         {/* start image section 1 */}
         {data && (
           <div className="lg:w-[40%] md:w-[40%] w-[100%]">
-            <div className='max-w-[65%] m-auto'>
+            <div className="max-w-[65%] m-auto">
               <img
                 src={data.image}
                 className="lg:w-[80%] md:w-[80%] m-auto mt-10"
@@ -145,10 +152,11 @@ const ProductDetail = (props) => {
             </select>
             {/* end dropdown qty */}
             <div>
-              <button className="w-full block bg-[#F4D03F] font-bold text-sm mx-auto py-2 px-4 rounded-2xl my-5" onClick={cartHandler}>
-                <Link to="/cart">
-                  Add to Cart
-                </Link>
+              <button
+                className="w-full block bg-[#F4D03F] font-bold text-sm mx-auto py-2 px-4 rounded-2xl my-5"
+                onClick={cartHandler}
+              >
+                <Link to="/cart">Add to Cart</Link>
               </button>
               <button className="w-full block bg-orange-500 font-bold text-sm mx-auto py-2 px-4 rounded-2xl">
                 Buy Now

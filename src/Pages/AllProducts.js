@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Card } from 'flowbite-react';
-import { Carousel } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Card } from "flowbite-react";
+import { Carousel } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const AllProducts = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log('All products component renderd');
+    console.log("All products component renderd");
     if (props.data) {
       setData(props.data);
     } else {
@@ -21,31 +21,30 @@ const AllProducts = (props) => {
 
   return (
     <>
-
-<div className="mainbox-allproducts mt-40 my-14 w-[90%] mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
-{data &&
+      <div className="mainbox-allproducts mt-40 my-14 w-[90%] mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+        {data &&
           data.map((item) => (
             <Link to={`/detail/${item.id}`}>
-     <div className="relative  bg-white border border-gray-200 rounded-lg shadow targetCard-AllProductPage h-[400px] ">
-      <a href="#">
-        <img className="rounded-t-lg" src={item.image} alt="" />
-      </a>
-      <div className="p-5">
-        <a href="#">
-        <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white text-center">
-                      {item.title.slice(0,40)}...
+              <div className="relative  bg-white border border-gray-200 rounded-lg shadow targetCard-AllProductPage h-[400px] ">
+                <a href="#">
+                  <img className="rounded-t-lg" src={item.image} alt="" />
+                </a>
+                <div className="p-5">
+                  <a href="#">
+                    <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+                      {item.title.slice(0, 40)}...
                     </h5>
-        </a>
+                  </a>
 
-         {/* star and rating div */}
-         <div className="mb-14 mt-2 flex items-center justify-center  ">
+                  {/* star and rating div */}
+                  <div className="mb-14 mt-2 flex items-center justify-center  ">
                     {/* Stars */}
 
                     {Array.from({ length: item.rating.rate }).map((_) => (
                       <div>
                         <i
                           class="fa-solid fa-star"
-                          style={{ color: 'gold' }}
+                          style={{ color: "gold" }}
                         ></i>
                       </div>
                     ))}
@@ -59,33 +58,18 @@ const AllProducts = (props) => {
                   </div>
                   {/* end rate  */}
 
-
                   <div className=" absolute bottom-7 left-0 w-full flex items-center justify-evenly ">
-        <p className="text-2xl font-bold text-gray-900 dark:text-white">
-        ${item.price}
-        </p>
-        </div>
-      
-      </div>
-    </div>
-    </Link>
+                    <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                      ${item.price}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
           ))}
+      </div>
 
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* 
+      {/* 
 
       <div className="mainbox-allproducts mt-10 w-[90%] mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
         {data &&

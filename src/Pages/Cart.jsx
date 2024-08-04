@@ -16,13 +16,6 @@ const Cart = (props) => {
   },[length])
 
   const incrementHandle = (id) => {
-    //Delte that product from array
-    // const filter = item.filter((val) => val.id != id);
-
-    // // Update and add back to array
-    // const update = item.filter((val) => val.id == id);
-    // update[0].quantity += 1;
-
     const updatedData = item.map((val) => {
       if (val.id === id) {
         setLength(length+1)
@@ -38,6 +31,7 @@ const Cart = (props) => {
   const decrementHandle = (id) => {
     const updatedData = item.map((val) => {
       if (val.id === id) {
+        setLength(length-1)
         return (val.quantity == 1)?{ ...val, quantity: 1 }:{ ...val, quantity: val.quantity - 1 };
       } else {
         return val;

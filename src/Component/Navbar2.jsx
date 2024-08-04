@@ -11,8 +11,12 @@ const Navbar2 = ({ onDataHandler,length }) => {
 
   const [data, setData] = useState();
   const [searchItem, setSearchItem] = useState();
-  // const [searchData, setSearchData] = useState([]);
   const [flag, setFlag] = useState(false);
+  
+
+useEffect(()=>{
+  console.log("Nav Component render ")
+},[])
 
   useEffect(() => {
     initFlowbite();

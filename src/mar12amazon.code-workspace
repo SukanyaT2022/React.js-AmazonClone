@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": "mar12amazon",
+		"path": ".."
+	},
+	{
+		"name": "src",
+		"path": "../../../src"
+	}
+],
+  "settings": {}
+}
