@@ -55,71 +55,78 @@ a {
   margin-bottom: 1rem;
 }
 
-/* slider in big Hero  */
-.sliderBigHero{
-animation-name: sliderBigHero ;
-animation-duration: 8s;
-animation-iteration-count:infinite; 
-/* how many round of slide to make--animation-iteration-count: ;  */
-animation-delay: 5beachs;
-/* width: 200px;
-height: 200px; */
-background-image: url('https://img.freepik.com/free-photo/pretty-blonde-woman-wearing-floral-dress-posing-near-yellow-wall_291049-108.jpg?t=st=1717500053~exp=1717503653~hmac=3404936734794b2a111f82620ce75fd283805581ddf158db1a3a710bdc9980eb&w=1800');
-background-size: cover;
+.cart_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
 
+.cart_items {
+  display: flex;
+  flex-direction: column;
+}
+.checkout_container {
+  background-color: lightblue;
+  padding: 1rem;
+  border-radius: 4px;
+  width: 15rem;
+}
+
+/* slider in big Hero  */
+.sliderBigHero {
+  animation-name: sliderBigHero;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  /* how many round of slide to make--animation-iteration-count: ;  */
+  animation-delay: 5beachs;
+  /* width: 200px;
+height: 200px; */
+  background-image: url('https://img.freepik.com/free-photo/pretty-blonde-woman-wearing-floral-dress-posing-near-yellow-wall_291049-108.jpg?t=st=1717500053~exp=1717503653~hmac=3404936734794b2a111f82620ce75fd283805581ddf158db1a3a710bdc9980eb&w=1800');
+  background-size: cover;
 }
 @keyframes sliderBigHero {
-  0%{
+  0% {
     background-image: url('https://img.freepik.com/free-photo/pretty-blonde-woman-wearing-floral-dress-posing-near-yellow-wall_291049-108.jpg?t=st=1717500053~exp=1717503653~hmac=3404936734794b2a111f82620ce75fd283805581ddf158db1a3a710bdc9980eb&w=1800');
     background-size: cover;
-   
   }
-  25%{
+  25% {
     background-image: url('https://img.freepik.com/free-photo/joyful-woman-pink-shorts-standing-near-colorful-graffiti_197531-17113.jpg?t=st=1717500226~exp=1717503826~hmac=d71b5585ac75854c3e9e267ff5d8fa6f12a49dae9fe2caa5e894ee4659f78695&w=1800');
     background-size: cover;
   }
-  50%{
+  50% {
     background-image: url('https://img.freepik.com/free-photo/young-woman-yellow-dress-with-hat_291650-54.jpg?t=st=1717500302~exp=1717503902~hmac=2c715fe38df86509351b094e6da6e79b7fc451ff5304cded12e2eae8518b97f4&w=1800');
     background-size: cover;
   }
-  75%{
+  75% {
     background-image: url('https://img.freepik.com/free-photo/view-flip-flops-with-summer-essentials-starfish_23-2149460080.jpg?t=st=1717501344~exp=1717504944~hmac=e5afdbbcc03cafccd5dee1d32d03690ae965416e01d0824652ed9cd7d2bda81b&w=1800');
     background-size: cover;
   }
-  100%{
+  100% {
     background-image: url('https://img.freepik.com/free-photo/pretty-blonde-woman-wearing-floral-dress-posing-near-yellow-wall_291049-108.jpg?t=st=1717500053~exp=1717503653~hmac=3404936734794b2a111f82620ce75fd283805581ddf158db1a3a710bdc9980eb&w=1800');
     background-size: cover;
   }
 }
 /* phone */
 @media screen and (max-width: 900px) {
-  .sliderBigHero{
-
-
+  .sliderBigHero {
+  }
+  @keyframes sliderBigHero {
+    0% {
+      background-position: center center;
     }
-    @keyframes sliderBigHero {
-      0%{
-      
-        background-position: center center  ;
-       
-      }
-      25%{
-        background-position: center center  ;
-      }
-      50%{
-        background-position: center center  ;
-      }
-      75%{
-        background-position: center center  ;
-      }
-      100%{
-        background-position: center center  ;
-      }
+    25% {
+      background-position: center center;
     }
+    50% {
+      background-position: center center;
+    }
+    75% {
+      background-position: center center;
+    }
+    100% {
+      background-position: center center;
+    }
+  }
 }
-
-
-
 
 /* phone */
 @media screen and (max-width: 540px) {

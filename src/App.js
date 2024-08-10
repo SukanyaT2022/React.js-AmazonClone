@@ -42,7 +42,7 @@ function App() {
   }, [data]);
 
   useEffect(()=>{
-    console.log("New length = "+length)
+
   },[length])
 
   // useEffect(() => {
@@ -62,10 +62,8 @@ function App() {
       itemFound[0].quantity = itemFound[0].quantity + 1;
       console.log(itemFound);
       setCart([...remaining, itemFound[0]]);
-      console.log("Item found");
     } else {
       setCart((oldData) => [...oldData, data]);
-      console.log("Item not found");
     }
   };
   //step 2 make function--use to updatedata--data fresh data from cart
