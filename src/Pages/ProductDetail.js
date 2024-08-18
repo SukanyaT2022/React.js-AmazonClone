@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
-import { FaStar, FaCheck } from "react-icons/fa";
-import { Button, Modal, Select } from "flowbite-react";
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { FaStar, FaCheck } from 'react-icons/fa';
+import { Button, Modal, Select } from 'flowbite-react';
+import { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 const ProductDetail = (props) => {
   const [openModal, setOpenModal] = useState(false);
-  const [modalSize, setModalSize] = useState("md");
+  const [modalSize, setModalSize] = useState('md');
   const { id } = useParams();
   const [isDataFetched, setIsDataFetched] = useState(false);
 
   const [data, setData] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     id &&
@@ -24,12 +25,24 @@ const ProductDetail = (props) => {
 
   useEffect(() => {
     if (isDataFetched) {
-      setData((oldData) => ({ ...oldData, quantity: 1 }));
+      setData((oldData) => ({ ...oldData, quantity }));
     }
   }, [isDataFetched]);
 
   const cartHandler = () => {
-    props.onCartData(data);
+    props.onCartData(data, quantity);
+  };
+
+  const quantityHandler = (e) => {
+    const selectedQuantity = e.target.value;
+    setQuantity(selectedQuantity);
+
+    setData((oldData) => ({
+      ...oldData,
+      quantity: selectedQuantity,
+    }));
+
+    console.log(selectedQuantity);
   };
 
   return (
@@ -140,7 +153,11 @@ const ProductDetail = (props) => {
             <p className="text-green-500 font-bold text-lg ">In Stock</p>
             {/* dropdown quantity */}
 
-            <select className="rounded-lg w-full">
+            <select
+              className="rounded-lg w-full"
+              onChange={quantityHandler}
+              value={quantity}
+            >
               <option value="1" disabled>
                 Quantity:
               </option>

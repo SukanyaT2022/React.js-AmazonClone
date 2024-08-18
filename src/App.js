@@ -51,6 +51,8 @@ function App() {
 
   const cartData = (data) => {
     console.log(data);
+      // setData((oldData) => ({ ...oldData, quantity }));
+
     // return;
     let itemFound =
       cart.length > 0 && cart.filter((item) => item.id == data.id);

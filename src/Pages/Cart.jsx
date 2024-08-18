@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Checkout from "../Component/Checkout"
+import Checkout from '../Component/Checkout';
 
 const Cart = (props) => {
   const [item, setItem] = useState([]);
@@ -7,19 +7,29 @@ const Cart = (props) => {
 
   useEffect(() => {
     setItem(props.cart);
+
     setLength(props.length);
-    props.lengthCounter(props.length)
+    props.lengthCounter(props.length);
   }, [props.cart]);
 
-  useEffect(()=>{
+  useEffect(() => {
+    let l = 0;
+    item &&
+      item.map((val) => {
+        l += +val.quantity;
+      });
+      setLength(l)
+  }, [item]);
+
+  useEffect(() => {
     //Sending back updated length
-    props.lengthCounter(length)
-  },[length])
+    props.lengthCounter(length);
+  }, [length]);
 
   const incrementHandle = (id) => {
     const updatedData = item.map((val) => {
       if (val.id === id) {
-        setLength(length+1)
+        setLength(length + 1);
         return { ...val, quantity: val.quantity + 1 };
       } else {
         return val;
@@ -32,8 +42,10 @@ const Cart = (props) => {
   const decrementHandle = (id) => {
     const updatedData = item.map((val) => {
       if (val.id === id) {
-        setLength(length-1)
-        return (val.quantity == 1)?{ ...val, quantity: 1 }:{ ...val, quantity: val.quantity - 1 };
+        setLength(length - 1);
+        return val.quantity == 1
+          ? { ...val, quantity: 1 }
+          : { ...val, quantity: val.quantity - 1 };
       } else {
         return val;
       }
@@ -208,7 +220,7 @@ const Cart = (props) => {
         {item.length == 0 && <h1 className="text-3xl">Cart is empty!</h1>}
       </div>
       {/* Parent to child transfer */}
-      {item.length>0 && <Checkout item={item} length={length}/> }
+      {item.length > 0 && <Checkout item={item} length={length} />}
     </div>
   );
 };
