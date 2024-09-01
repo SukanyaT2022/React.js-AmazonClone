@@ -60,7 +60,7 @@ function App() {
       cart.length > 0 && cart.filter((item) => item.id != data.id);
 
     if (itemFound.length > 0) {
-      setTempLength(tempLength+1)
+      // setTempLength(tempLength+1)
       itemFound[0].quantity = itemFound[0].quantity + 1;
       console.log(itemFound);
       setCart([...remaining, itemFound[0]]);

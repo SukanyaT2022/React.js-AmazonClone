@@ -9,7 +9,6 @@ const Checkout = ({ item, length }) => {
       item.map((val) => {
         sum += val.price * val.quantity;
       });
-      console.log(sum);
       setTotal(sum);
     }
   }, [item]);
@@ -17,7 +16,9 @@ const Checkout = ({ item, length }) => {
   return (
     <div className="checkout_container">
       <h1>Checkout</h1>
-      <p> Total = ${total}</p>
+      <p> Total = ${total.toFixed(2)}</p>
+
+      <p> Quantity = {length}</p>
     </div>
   );
 };
